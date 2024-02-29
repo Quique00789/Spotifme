@@ -1,0 +1,39 @@
+.ControlReproduccion {
+  /* Estilos para el componente ControlReproduccion */
+  color: green;
+  background-color: #282c34;
+  display: flex;
+  justify-content: center; /* Alinea horizontalmente en el centro */
+  align-items: center; /* Alinea verticalmente en el centro */
+  height: 100vh; /* Establece la altura de la pantalla completa */
+}
+
+.FondoVisual {
+  /* Estilos para el componente FondoVisual */
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinea horizontalmente en el centro */
+  align-items: center; /* Alinea verticalmente en el centro */
+  height: 100vh; /* Establece la altura de la pantalla completa */
+}
+
+.ListaCanciones {
+  /* Estilos para el componente ListaCanciones */
+  color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinea horizontalmente en el centro */
+  align-items: center; /* Alinea verticalmente en el centro */
+  height: 100vh; /* Establece la altura de la pantalla completa */
+}
+
+.ReproductorMusica {
+  /* Estilos para el componente ReproductorMusica */
+  color: red;
+  background-color: #282c34;
+  display: flex;
+  justify-content: center; /* Alinea horizontalmente en el centro */
+  align-items: center; /* Alinea verticalmente en el centro */
+  height: 100vh; /* Establece la altura de la pantalla completa */
+}

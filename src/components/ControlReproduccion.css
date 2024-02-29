@@ -1,0 +1,13 @@
+.boton-reproduccion {
+    background-color: #6d6f71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.boton-reproduccion:hover {
+    background-color: #363636;
+}
