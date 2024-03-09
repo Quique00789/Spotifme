@@ -1,41 +1,35 @@
-// Login.jsx
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { generateRandomString } from '../components/util'; // Asumiendo que tienes una función para generar cadenas aleatorias
 
-const client_id = 'd9fc62e09f374a90af2154e88b0b22fc';
-const redirect_uri = 'http://localhost:3000/';
+const clientId = 'd9fc62e09f374a90af2154e88b0b22fc'; 
+const redirectUri = `${window.location.origin}/top-tracks`; 
 
 function Login() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-    if (code) {
-      setIsLoggedIn(true);
-      // Redirigir a TopTracks después de la autenticación
-      navigate('/top-tracks');
-    }
-  }, [navigate]);
-
   const handleLogin = () => {
-    window.location.href = `https://accounts.spotify.com/authorize?${new URLSearchParams({
-      response_type: 'code',
-      client_id,
-      redirect_uri,
-      state: generateRandomString(16)
-    })}`;
+    const state = generateRandomString(16);
+    const scope = 'user-read-private user-read-email user-top-read';
+    const responseType = 'token';
+
+    const authUrl = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}&scope=${scope}&show_dialog=true`;
+
+    window.location.href = authUrl;
+  };
+
+  const generateRandomString = (length) => {
+    let text = '';
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
   };
 
   return (
     <div>
-      {isLoggedIn ? (
-        <p>Logged in successfully!</p>
-      ) : (
-        <button onClick={handleLogin}>Login with Spotify</button>
-      )}
+      <h1>Iniciar sesión en Spotify</h1>
+      <button onClick={handleLogin}>Iniciar sesión</button>
     </div>
   );
 }
