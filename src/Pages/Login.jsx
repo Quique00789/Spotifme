@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const clientId = 'd9fc62e09f374a90af2154e88b0b22fc'; 
+//colocar cliend id propia const clientId = 'd9fc62e09f374a90af21354e88b0b22as'; 
 const redirectUri = `${window.location.origin}/top-tracks`; 
 
 function Login() {
